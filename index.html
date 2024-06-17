@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web3 Wallet Connection</title>
+    <!-- Add the following CSP meta tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #balanceETH, #balanceSepolia {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        #balanceETHValue, #balanceSepoliaValue {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // Pass the Infura Project ID as a global variable
+        window.infuraProjectId = '${process.env.INFURA_PROJECT_ID}';
+    </script>
+</head>
+<body>
+    <h1>Connect to Web3 Wallet</h1>
+    <button id="connectButton">Connect Wallet</button>
+    <button id="disconnectButton" style="display:none;">Disconnect Wallet</button>
+    <div id="balanceETH" style="display:none;">ETH Balance: <span id="balanceETHValue"></span> ETH</div>
+    <div id="balanceSepolia" style="display:none;">Sepolia Balance: <span id="balanceSepoliaValue"></span> ETH</div>
+    <!-- Include Web3.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <!-- Include the MetaMask detect-provider script from a CDN -->
+    <script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <!-- Include your main.js script -->
+    <script src="main.js"></script>
+</body>
+</html>
